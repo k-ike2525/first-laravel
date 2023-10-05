@@ -6,16 +6,23 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-  public function index()
-  {
-    return view('index');
-  }
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-    public function attendance()
-  {
-    return view('attendance');
-  }
-
-
-  
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function create()
+    {
+        return view('attendance');
+    }
 }
